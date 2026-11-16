@@ -22,18 +22,34 @@ section{padding:82px 0}.section-top{display:flex;align-items:end;justify-content
 .contact{background:linear-gradient(130deg,rgba(114,240,209,.12),rgba(141,155,255,.12));border:1px solid var(--line);border-radius:28px;padding:clamp(25px,5vw,50px);display:flex;align-items:center;justify-content:space-between;gap:25px}.contact h2{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;margin:8px 0}.contact p{color:var(--muted);margin:0}.contactlinks{display:grid;gap:12px;min-width:245px}.contactlinks a{border-bottom:1px solid var(--line);padding:8px 0}.contactlinks a:hover{color:var(--accent)}
 footer{padding:28px 0;color:var(--muted);font-size:.86rem;border-top:1px solid var(--line);margin-top:80px}.reveal{animation:rise .8s both}.muted{color:var(--muted)}
 @media(max-width:720px){.links{gap:13px;font-size:.78rem}.navin{height:64px}.hero{min-height:80vh;padding:65px 0}.grid,.edu,.skills{grid-template-columns:1fr}.role{grid-template-columns:1fr;gap:8px}.contact{display:block}.contactlinks{margin-top:25px}.section-top{display:block}.sub{margin-top:10px}}@media(max-width:430px){.wrap{width:calc(100% - 28px)}.links a:nth-child(2),.links a:nth-child(3){display:none}.hero h1{font-size:3.3rem}}
+
+.hero-layout{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:42px}
+.hero-copy{animation:heroIn 1s cubic-bezier(.2,.8,.2,1) both}
+.portrait-wrap{position:relative;justify-self:center;width:min(100%,390px);animation:portraitIn 1.15s .12s cubic-bezier(.2,.8,.2,1) both}
+.portrait-wrap:before{content:"";position:absolute;inset:8% -7%;border:1px solid rgba(114,240,209,.6);border-radius:48% 48% 30% 30%;box-shadow:0 0 45px rgba(114,240,209,.14);animation:halo 5s ease-in-out infinite;z-index:0}
+.portrait-wrap:after{content:"";position:absolute;width:78px;height:78px;border:1px solid rgba(141,155,255,.5);border-radius:50%;right:-18px;top:12%;animation:float 6s ease-in-out infinite;z-index:0}
+.portrait{display:block;position:relative;z-index:1;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center center;border-radius:46% 46% 22px 22px;border:1px solid rgba(255,255,255,.16);box-shadow:0 25px 75px rgba(0,0,0,.42);mask-image:linear-gradient(to bottom,#000 84%,transparent 100%)}
+@keyframes heroIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes portraitIn{from{opacity:0;transform:translateY(35px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes halo{50%{transform:scale(1.035);opacity:.6}}
+@keyframes float{50%{transform:translateY(-16px)}}
+@media(max-width:720px){.hero-layout{grid-template-columns:1fr;gap:34px}.hero-copy{order:1}.portrait-wrap{order:0;width:min(72%,280px);margin:0 auto}.hero{padding-top:48px}.portrait-wrap:after{right:-14px;width:52px;height:52px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<nav><div class="wrap navin"><a class="brand" href="#home">DH<span>.</span></a><div class="links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
+<nav><div class="wrap navin"><a class="brand" href="#home">DH<span>.</span></a><div class="links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
 <main>
 <header class="wrap hero" id="home">
-  <div class="reveal">
-    <div class="eyebrow">IT Graduate · Web Designer · Lifelong Learner</div>
-    <h1>Hi, I'm<br><span>Dhruv Chavda.</span></h1>
-    <p class="lead">I’m an IT professional in the making, currently pursuing an M.Sc. in Information Technology. I enjoy creating responsive digital experiences, shaping user-friendly interfaces, and solving practical technology problems.</p>
-    <div class="actions"><a class="btn primary" href="#contact">Let's connect ↗</a><a class="btn" href="#experience">Explore my journey ↓</a></div>
-    <div class="meta"><span>📍 <b>Gujarat, India</b></span><span>🎓 <b>M.Sc. IT — Pursuing</b></span><span>🌐 <b>Open to IT opportunities</b></span></div>
+  <div class="hero-layout">
+    <div class="hero-copy">
+      <div class="eyebrow">IT Graduate · Android Developer · Web Designer</div>
+      <h1>Hi, I'm<br><span>Dhruv Chavda.</span></h1>
+      <p class="lead">I’m an M.Sc. IT student interested in Android development, software testing and building useful, user-friendly digital experiences.</p>
+      <div class="actions"><a class="btn primary" href="#projects">View my projects ↗</a><a class="btn" href="#contact">Let's connect</a></div>
+      <div class="meta"><span>📍 <b>Gujarat, India</b></span><span>🎓 <b>M.Sc. IT — Pursuing</b></span><span>🌐 <b>Open to IT opportunities</b></span></div>
+    </div>
+    <div class="portrait-wrap"><img class="portrait" src="dhruv-portrait.png" alt="Portrait of Dhruv Chavda wearing a navy blazer and black glasses" fetchpriority="high" decoding="async"></div>
   </div>
 </header>
 <section id="about"><div class="wrap">
@@ -47,6 +63,38 @@ footer{padding:28px 0;color:var(--muted);font-size:.86rem;border-top:1px solid v
     <div class="role"><div class="date">7 months</div><article class="card"><h3>Assistant Store Manager</h3><div class="company">Swiggy Instamart</div><ul><li>Managed store assets, real-time inventory tracking and demand planning.</li><li>Supervised floor teams and coordinated multi-shift operations.</li><li>Maintained item-accuracy and quality checks to support fast order fulfilment.</li><li>Worked to improve operational efficiency and customer satisfaction.</li></ul></article></div>
   </div>
 </div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="section-top"><div><div class="kicker">03 / Projects</div><h2>Things I've built.</h2></div><p class="sub">A practical Android application focused on everyday fitness and nutrition tracking.</p></div>
+  <article class="card" style="padding:clamp(22px,4vw,34px)">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div><div class="kicker">Featured Android Project</div><h3 style="font-size:clamp(1.5rem,4vw,2.2rem);margin:7px 0">FitVision – Fitness &amp; Nutrition Tracking App</h3></div>
+      <span class="tag">Android Application</span>
+    </div>
+    <p style="max-width:850px">An Android application designed to help users manage their fitness journey through workout tracking, nutrition management, BMI calculation, water intake monitoring and personalized fitness goals.</p>
+    <div class="grid" style="margin-top:22px">
+      <div>
+        <h3>Key features</h3>
+        <ul style="color:var(--muted);padding-left:19px">
+          <li>Secure user registration and login</li>
+          <li>BMI calculation</li>
+          <li>Workout and diet management</li>
+          <li>Daily water and step tracking</li>
+          <li>Calorie and protein monitoring</li>
+          <li>Profile and fitness goal management</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Project overview</h3>
+        <p>A mobile fitness companion that brings several personal health and activity tracking features together in one application.</p>
+        <h3 style="margin-top:18px">Project type</h3>
+        <div class="tagrow"><span class="tag">Android Development</span><span class="tag">Mobile App</span><span class="tag">Fitness &amp; Nutrition</span></div>
+        <p style="font-size:.85rem;margin-top:18px">Screenshots and source-code links can be added when available.</p>
+      </div>
+    </div>
+  </article>
+</div></section>
+
 <section id="skills"><div class="wrap">
   <div class="section-top"><div><div class="kicker">03 / Skills</div><h2>My toolkit.</h2></div><p class="sub">Technologies and strengths listed in my current resume.</p></div>
   <div class="skills">
@@ -56,7 +104,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.86rem;border-top:1px solid v
   </div>
 </div></section>
 <section id="education"><div class="wrap">
-  <div class="section-top"><div><div class="kicker">04 / Education</div><h2>Learning in progress.</h2></div></div>
+  <div class="section-top"><div><div class="kicker">05 / Education</div><h2>Learning in progress.</h2></div></div>
   <div class="edu">
     <div class="eduitem"><b>M.Sc. Information Technology</b><br><small>Currently pursuing</small></div>
     <div class="eduitem"><b>B.Sc. Information Technology</b><br><small>Graduated — 2024</small></div>
@@ -65,7 +113,7 @@ footer{padding:28px 0;color:var(--muted);font-size:.86rem;border-top:1px solid v
   </div>
   <div class="grid" style="margin-top:24px"><article class="card"><h3>Certification</h3><p>Google UX Design — Professional Certificate</p></article><article class="card"><h3>Languages</h3><p>English · Hindi · Gujarati</p></article></div>
 </div></section>
-<section id="contact"><div class="wrap"><div class="contact"><div><div class="kicker">05 / Contact</div><h2>Have an opportunity<br>or idea in mind?</h2><p>I'd be glad to hear from you.</p></div><div class="contactlinks"><a href="mailto:Dhruvrajchavda2910@gmail.com">✉ Dhruvrajchavda2910@gmail.com</a><a href="tel:+916354553003">☎ +91 63545 53003</a><span class="muted">📍 Gujarat, India</span></div></div></div></section>
+<section id="contact"><div class="wrap"><div class="contact"><div><div class="kicker">06 / Contact</div><h2>Have an opportunity<br>or idea in mind?</h2><p>I'd be glad to hear from you.</p></div><div class="contactlinks"><a href="mailto:Dhruvrajchavda2910@gmail.com">✉ Dhruvrajchavda2910@gmail.com</a><a href="tel:+916354553003">☎ +91 63545 53003</a><span class="muted">📍 Gujarat, India</span></div></div></div></section>
 </main>
 <footer><div class="wrap">© <span id="year"></span> Dhruv Chavda · Built with curiosity and code.</div></footer>
 <script>document.getElementById('year').textContent=new Date().getFullYear();const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.style.animation='rise .7s both';io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('section .card, .role, .eduitem').forEach(el=>{el.style.opacity='0';io.observe(el)});</script>
